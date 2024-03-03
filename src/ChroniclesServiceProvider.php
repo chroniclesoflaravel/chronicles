@@ -15,9 +15,9 @@ class ChroniclesServiceProvider extends ServiceProvider
          * Optional methods to load your package assets
          */
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'chronicles');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'chronicles');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'chronicles');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
@@ -30,9 +30,9 @@ class ChroniclesServiceProvider extends ServiceProvider
             ], 'views');*/
 
             // Publishing assets.
-            /*$this->publishes([
+            $this->publishes([
                 __DIR__.'/../resources/assets' => public_path('vendor/chronicles'),
-            ], 'assets');*/
+            ], 'assets');
 
             // Publishing the translation files.
             /*$this->publishes([
