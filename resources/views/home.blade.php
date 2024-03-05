@@ -1,3 +1,5 @@
 <x-chronicles::layout>
-    <h1>Welcome Yo</h1>
+    
+        <livewire:chronicles-home />
+
 </x-chronicles::layout>

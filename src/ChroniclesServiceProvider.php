@@ -3,6 +3,8 @@
 namespace Chronicles\Chronicles;
 
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
+use Chronicles\Chronicles\Home\Home;
 
 class ChroniclesServiceProvider extends ServiceProvider
 {
@@ -19,9 +21,11 @@ class ChroniclesServiceProvider extends ServiceProvider
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
+        Livewire::component('chronicles-home', Home::class);
+
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('chronicles.php'),
+                __DIR__.'/../config/chronicles.php' => config_path('chronicles.php'),
             ], 'config');
 
             // Publishing the views.
@@ -31,7 +35,7 @@ class ChroniclesServiceProvider extends ServiceProvider
 
             // Publishing assets.
             $this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/chronicles'),
+                __DIR__.'/../resources/assets' => public_path('vendor/chronicles/chronicles'),
             ], 'assets');
 
             // Publishing the translation files.
@@ -50,7 +54,7 @@ class ChroniclesServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'chronicles');
+        $this->mergeConfigFrom(__DIR__.'/../config/chronicles.php', 'chronicles');
 
         // Register the main class to use with the facade
         $this->app->singleton('chronicles', function () {
