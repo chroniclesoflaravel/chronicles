@@ -14,7 +14,11 @@
 </head>
 <body>
 
-    <div id="chronicle" class="flex items-center justify-center w-screen h-screen">
+    <div id="start" class="flex items-center justify-center w-screen h-screen bg-black bg-cover" style="background-image:url('/chronicles/images/assets/background-zoom-out.png')">
+        <div class="fixed inset-0 z-10 w-screen h-screen bg-black opacity-50"></div>
+        <button onclick="start()" class="relative z-20 px-3 py-2 text-black bg-white rounded-md">Begin My Journey</button>
+    </div>
+    <div id="chronicle" class="flex items-center justify-center hidden w-screen h-screen bg-cover" style="background-image:url('/chronicles/images/background.png')">
         {{ $slot }}
     </div>
     @livewireScripts
